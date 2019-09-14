@@ -1,0 +1,9 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details or
+// https://aka.ms/vscode-dev-containers/definitions for sample configurations.
+{
+	"dockerFile": "dockerfile",
+	"extensions": [],
+	"workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=delegated",
+	"workspaceFolder": "/workspace",
+	"postCreateCommand": "echo export PATH=$PATH:/workspace/workspace/manifesto:/workspace/workspace/bootrom-tools > ~/.bashrc && echo export BUILD_TOP=/workspace/workspace/ > ~/.bashrc && source ~/.bashrc"
+}

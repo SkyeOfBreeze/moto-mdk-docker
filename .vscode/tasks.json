@@ -1,0 +1,59 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Setup",
+            "type": "process",
+            "command": "${workspaceRoot}/scripts/setup.sh",
+            "options": {
+                "cwd": "${workspaceRoot}/workspace/nuttx/misc/tools/kconfig-frontends"
+            }
+        },
+        {
+            "label": "Clean",
+            "type": "process",
+            "command": "${workspaceRoot}/scripts/nuttxInit.sh",
+            "args": [
+                "${workspaceRoot}"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/workspace/nuttx/nuttx"
+            }
+        },
+        {
+            "label": "Configure",
+            "type": "process",
+            "command": "${workspaceRoot}/scripts/configure.sh",
+            "args": [
+                "${input:mucType}"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/workspace/nuttx/nuttx/tools"
+            }
+        },
+        {
+            "dependsOn":["Setup", "Clean", "Configure"],
+            "dependsOrder": "sequence",
+            "label": "Make",
+            "type": "shell",
+            "command": "export PATH=$PATH:/workspace/workspace/manifesto:/workspace/workspace/bootrom-tools && make",
+            "options": {
+                "cwd": "${workspaceRoot}/workspace/nuttx/nuttx/"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "inputs": [
+        {
+          "id": "mucType",
+          "type": "promptString",
+          "default": "hdk/muc/base_unpowered",
+          "description": "Platform"
+        }
+      ]
+}

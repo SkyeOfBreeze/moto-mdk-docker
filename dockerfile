@@ -1,17 +1,17 @@
-FROM ubuntu:latest
+FROM ubuntu:14.04
 RUN apt-get update -y
 RUN apt-get install -y wget git gperf flex bison libncurses5-dev gcc-arm-none-eabi python python-pip && \
 pip install pyelftools
 
 # openocd for usb
 WORKDIR /home/workspace/dependencies
-RUN apt-get install -y libusb-1.0-0-dev libftdi-dev libtool autoconf texinfo pkg-config gcc-5 && \ 
+RUN apt-get install -y libusb-1.0-0-dev libftdi-dev libtool autoconf texinfo pkg-config && \ 
 git clone https://github.com/MotorolaMobilityLLC/openocd && \ 
 cd openocd && \ 
 git submodule init && \ 
 git submodule update && \ 
 ./bootstrap && \ 
-./configure --prefix=/usr/local CC=gcc-5 && \ 
+./configure --prefix=/usr/local && \ 
 make && \
 make install
 
