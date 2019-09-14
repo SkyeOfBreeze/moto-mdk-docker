@@ -13,7 +13,7 @@ https://developer.motorola.com/documentation/developer-tools-overview
 Note: Please view the requirements of remote containers. Docker Toolbox is not supported
 
 ## How to use ##
-
+1. Add the repos from https://developer.motorola.com/documentation/build-source to a folder named "workspace"
 1. Open the folder in VSCode
 2. Optionally prebuild the dockerfile (VSCode plugin exists for this as well, but can be done via command line)
 3. At the bottom left of VSCode, click the icon for actions, and select "Remote-Containers: Reopen in container"
