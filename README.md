@@ -1,6 +1,12 @@
 # Motorola MDK Docker Container #
 
 This tool will build the Motorola Moto Mods Developmemt Kit environment to a docker container and attach to the container using VSCode Container
+
+Optionally, you can launch this in WSL without docker (way better performance than using docker on Windows), and run the `scripts/setup-wsl.sh` file to install required dependencies.
+Works best with Ubuntu 16.04. May require additional tinkering for newer versions.
+https://www.microsoft.com/en-us/p/ubuntu-1604-lts/9pjn388hp8c9?rtc=1&activetab=pivot:overviewtab
+
+
 https://developer.motorola.com/documentation/developer-tools-overview
 
 Mirrors:
@@ -17,7 +23,7 @@ Debug And Log: https://web.archive.org/web/20161102205125/http://developer.motor
 
 ## Requirements ##
 
-- Docker
+- Docker or WSL
 - VSCode
 - VSCode remote containers - https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
@@ -37,9 +43,11 @@ Environment variables for BUILD_TOP and adding bootrom-tools and manifesto to PA
 Helper scripts show up in the Terminal Tasks for vscode.
 Scripts are tied to tasks in ./vscode/tasks.json.
 
-### Setup (scripts/setup.sh) ###
+### Setup (scripts/setup-wsl.sh) ###
 
-Initial setup of /workspace/nuttx/misc/tools/kconfig-frontends for setting up the build environment
+Initial setup of all tools required to build a file. This does all the steps required on http://developer.motorola.com/build/tools/setup-environment, and builds the menuconfig
+
+GDB and openocd can be removed from the script if not needed, or if they fail to build.
 
 ### Clean (scripts/nuttxInit.sh) ###
 
