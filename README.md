@@ -6,9 +6,13 @@ https://developer.motorola.com/documentation/developer-tools-overview
 Mirrors:
 
 Overview: https://web.archive.org/web/20161019022207/http://developer.motorola.com/build/tools
+
 Setup Environment: https://web.archive.org/web/20161026022354/http://developer.motorola.com/build/tools/setup-environment
+
 Build from source: https://web.archive.org/web/20161031223255/http://developer.motorola.com/build/tools/build-from-source
+
 Flashing Firmware: https://web.archive.org/web/20161031223553/http://developer.motorola.com/build/tools/flashing-firmware
+
 Debug And Log: https://web.archive.org/web/20161102205125/http://developer.motorola.com/build/tools/debug-and-log
 
 ## Requirements ##
