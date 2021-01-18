@@ -6,10 +6,7 @@
         {
             "label": "Setup",
             "type": "process",
-            "command": "${workspaceRoot}/scripts/setup-wsl.sh",
-            "options": {
-                "cwd": "/tmp/"
-            }
+            "command": "${workspaceRoot}/scripts/setup-wsl.sh"
         },
         {
             "label": "Clean",
