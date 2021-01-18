@@ -6,9 +6,9 @@
         {
             "label": "Setup",
             "type": "process",
-            "command": "${workspaceRoot}/scripts/setup.sh",
+            "command": "${workspaceRoot}/scripts/setup-wsl.sh",
             "options": {
-                "cwd": "${workspaceRoot}/workspace/nuttx/misc/tools/kconfig-frontends"
+                "cwd": "/tmp/"
             }
         },
         {
@@ -34,11 +34,11 @@
             }
         },
         {
-            "dependsOn":["Setup", "Clean", "Configure"],
+            "dependsOn":["Clean", "Configure"],
             "dependsOrder": "sequence",
             "label": "Make",
             "type": "shell",
-            "command": "export PATH=$PATH:/workspace/workspace/manifesto:/workspace/workspace/bootrom-tools && make",
+            "command": "export PATH=$PATH:${workspaceRoot}/workspace/manifesto:${workspaceRoot}/workspace/bootrom-tools && make",
             "options": {
                 "cwd": "${workspaceRoot}/workspace/nuttx/nuttx/"
             },

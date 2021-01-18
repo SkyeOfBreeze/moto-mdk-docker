@@ -36,5 +36,10 @@ cd gdb-7.11 && \
 ./configure --prefix=/usr/local --program-prefix=arm-none-eabi- --target=arm-none-eabi --with-python --with-guile && \
 make && \
 make install
+RUN git clone https://github.com/MotorolaMobilityLLC/nuttx && \
+./configure --enable-mconf --disable-nconf --disable-gconf --disable-qconf && \
+make && \
+sudo make install && \
+sudo ldconfig
 
 WORKDIR /home/workspace/mdk
