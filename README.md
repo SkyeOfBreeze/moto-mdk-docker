@@ -62,3 +62,46 @@ Configures a specific target (hdk/muc/...) Asks for input when run
 Runs Setup->Clean->Configure->make@/workspace/nuttx/nuttx
 
 This is the default build task, so it can be used with a shortcut if setup (CTRL+SHIFT+B on Windows)
+
+### Optional setup ###
+
+## Building nuttx Kconfig ##
+
+```
+cd ./workspace/nuttx/misc/tools/kconfig-frontends
+./configure --enable-mconf --disable-nconf --disable-gconf --disable-qconf
+make
+sudo make install
+sudo ldconfig
+cd -
+```
+
+## OpenOCD ##
+
+```
+
+#openocd
+git clone https://github.com/MotorolaMobilityLLC/openocd
+cd openocd
+git submodule init
+git submodule update
+./bootstrap
+./configure --prefix=/usr/local
+make
+sudo make install
+cd -
+
+```
+
+## GDB ##
+
+```
+
+wget http://ftp.gnu.org/gnu/gdb/gdb-7.11.tar.gz
+tar -zxf gdb-7.11.tar.gz
+cd gdb-7.11
+./configure --prefix=/usr/local --program-prefix=arm-none-eabi- --target=arm-none-eabi --with-python --with-guile
+make
+sudo make install
+
+```
