@@ -1,0 +1,12 @@
+[submodule "workspace/nuttx"]
+	path = workspace/nuttx
+	url = https://github.com/btelman96/nuttx
+[submodule "workspace/manifesto"]
+	path = workspace/manifesto
+	url = https://github.com/btelman96/manifesto
+[submodule "workspace/muc-loader"]
+	path = workspace/muc-loader
+	url = https://github.com/btelman96/muc-loader
+[submodule "workspace/bootrom-tools"]
+	path = workspace/bootrom-tools
+	url = https://github.com/btelman96/bootrom-tools
