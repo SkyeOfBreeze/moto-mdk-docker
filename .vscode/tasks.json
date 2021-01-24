@@ -31,8 +31,6 @@
             }
         },
         {
-            "dependsOn":["Clean", "Configure"],
-            "dependsOrder": "sequence",
             "label": "Make",
             "type": "shell",
             "command": "export PATH=$PATH:${workspaceRoot}/workspace/manifesto:${workspaceRoot}/workspace/bootrom-tools && make",
@@ -42,6 +40,16 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
+            }
+        },
+        {
+            "dependsOn":["Clean", "Configure", "Make"],
+            "dependsOrder": "sequence",
+            "label": "Init",
+            "type": "shell",
+            "command": "echo 'Build Complete'",
+            "options": {
+                "cwd": "${workspaceRoot}/workspace/nuttx/nuttx/"
             }
         }
     ],
